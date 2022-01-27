@@ -1,0 +1,14 @@
+.section-title {
+    margin-left: 40px;
+}
+
+.v-scroll {
+    margin: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: orange lightgrey;
+    scrollbar-width: thin;
+}

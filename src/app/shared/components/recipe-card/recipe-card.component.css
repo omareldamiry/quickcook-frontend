@@ -1,0 +1,11 @@
+mat-card {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 1px;
+    width: 200px;
+}
+
+img {
+    height: 150px;
+    object-fit: cover;
+}

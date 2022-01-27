@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        Login
+    </mat-card-title>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [(ngModel)]="password">
+        </mat-form-field>
+        <button class="white-txt" mat-raised-button color="primary" (click)="submitAuthData()">Login</button>
+        <p class="sm-text">Don't have an account?</p>
+        <button mat-button color="primary" (click)="switchToSignup()">Signup</button>
+    </mat-card-content>
+</mat-card>

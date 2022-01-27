@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-title>
+        Signup
+    </mat-card-title>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input type="text" matInput [(ngModel)]="firstName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input type="text" matInput [(ngModel)]="lastName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Confirm password</mat-label>
+            <input type="password" matInput #confPass>
+        </mat-form-field>
+        <button class="white-txt" mat-raised-button color="primary" (click)="submitSignupData()" disabled="{{confPass.value == password && password != ''? 'false': 'true'}}">Signup</button>
+        <p class="sm-text">Already have an account?</p>
+        <button mat-button color="primary" (click)="switchToLogin()">Login</button>
+    </mat-card-content>
+</mat-card>

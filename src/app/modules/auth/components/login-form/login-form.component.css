@@ -1,0 +1,20 @@
+mat-card {
+    text-align: center;
+}
+
+mat-form-field {
+    display: block;
+}
+
+button {
+    width: 100%;
+}
+
+.white-txt {
+    color: #fff;
+}
+
+.sm-text {
+    font-size: small;
+    color: grey;
+}

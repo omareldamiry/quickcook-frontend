@@ -1,0 +1,7 @@
+span, mat-icon {
+    color: white;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
