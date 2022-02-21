@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{data.mode=='edit'? 'Edit': 'Add'}} Ingredient</h1>
+<p>Please enter ingredient data</p>
+<div mat-dialog-content>
+    <mat-form-field color="accent">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.ingredient.name" value="" required>
+    </mat-form-field>
+    <mat-form-field color="accent">
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="data.ingredient.type">
+            <mat-option *ngFor="let type of keys()" [value]="type">
+                {{type}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data"
+        color="accent" disabled="{{(data.ingredient.name == '')? 'true': 'false'}}">
+        {{data.mode=='edit'? 'Update': 'Add'}}
+    </button>
+</div>

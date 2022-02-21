@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -12,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     MainLayoutComponent,
+    AdminLayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     MainLayoutComponent,
+    AdminLayoutComponent,
   ]
 })
 export class CoreModule { }

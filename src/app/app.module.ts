@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HomeModule } from './modules/home/home.module';
+import { AdminModule } from './modules/admin/admin.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     AuthModule,
     HomeModule,
+    AdminModule,
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

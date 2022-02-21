@@ -8,8 +8,6 @@ import { AuthData } from 'src/app/shared/models/auth-data.model';
 })
 export class LoginFormComponent implements OnInit {
 
-  // firstName: string = "";
-  // lastName: string = "";
   email: string = "";
   password: string = "";
 

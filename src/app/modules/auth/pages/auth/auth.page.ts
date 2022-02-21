@@ -19,6 +19,9 @@ export class AuthPage implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    if(this.authService.isLoggedIn){
+      this.router.navigateByUrl("/home");
+    }
   }
 
   toggleMode(newMode: string) {
@@ -29,15 +32,19 @@ export class AuthPage implements OnInit {
     this.authService.login(authData).subscribe(result => {
       if(result.code == 1) return;
 
-      console.log(result.message);
       this.authService.isLoggedIn = true;
       localStorage.setItem("token", result.data);
       this.router.navigateByUrl("/home");
     });
   }
 
-  // signup(signupData: SignupData) {
-  //   this.authService.signup(signupData).subscribe();
-  // }
+  signup(signupData: SignupData) {
+    this.authService.signup(signupData).subscribe(result => {
+      if(result.code == 1) return;
+
+      this.authService.isLoggedIn = true;
+      this.router.navigateByUrl("/home");
+    });
+  }
 
 }

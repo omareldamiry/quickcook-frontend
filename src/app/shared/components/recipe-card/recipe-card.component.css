@@ -1,8 +1,19 @@
+* {
+    text-overflow: ellipsis;
+ }
+
 mat-card {
     display: inline-block;
     margin-left: 15px;
     margin-right: 1px;
-    width: 200px;
+    max-width: 200px;
+    height: auto;
+    text-overflow: ellipsis;
+}
+
+mat-card-content {
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
 }
 
 img {

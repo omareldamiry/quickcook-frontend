@@ -1,10 +1,10 @@
 <mat-card>
         <img mat-card-image src="../../../../assets/cheese.jpg" alt="cheese">
     <mat-card-title>
-        Recipe Card
+        {{ recipe.name }}
     </mat-card-title>
     <mat-card-content>
-        <p>Hello world</p>
+        <p>{{ recipe.desc }}</p>
     </mat-card-content>
     <mat-card-actions>
         <button mat-icon-button><mat-icon>favorite</mat-icon></button>

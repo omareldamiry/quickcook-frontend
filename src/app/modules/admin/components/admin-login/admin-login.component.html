@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>
+        Login
+    </mat-card-title>
+    <mat-card-content>
+        <mat-form-field color="accent">
+            <mat-label>Username</mat-label>
+            <input type="email" matInput [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [(ngModel)]="password">
+        </mat-form-field>
+        <button class="white-txt" mat-raised-button color="accent" (click)="submitAuthData()">Login</button>
+    </mat-card-content>
+</mat-card>

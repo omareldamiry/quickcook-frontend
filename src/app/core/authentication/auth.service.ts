@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthData } from 'src/app/shared/models/auth-data.model';
+import { SignupData } from 'src/app/shared/models/signup-data.model';
 import { ApiService } from '../http/api.service';
 
 @Injectable({
@@ -8,19 +9,23 @@ import { ApiService } from '../http/api.service';
 export class AuthService {
 
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
 
-  constructor(private apiService:ApiService) {
+  constructor(private apiService: ApiService) {
     const token = localStorage.getItem("token");
     if(token) this.isLoggedIn = true;
    }
 
-  signup(body: any) {
-    return this.apiService.post("/signup", body);
+  signup(body: SignupData) {
+    return this.apiService.post("/user/signup", body);
   }
 
-  login(body: AuthData) {
-    return this.apiService.post("/user/login", body);
+  login(body: AuthData, altRoute: string = "user") {
+    return this.apiService.post(`/${altRoute}/login`, body);
   }
 
-  logout() {}
+  logout() {
+    localStorage.removeItem("token");
+    this.isLoggedIn = false;
+  }
 }

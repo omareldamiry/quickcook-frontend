@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { RecipeService } from 'src/app/core/services/recipe/recipe.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +8,19 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class HomePage implements OnInit {
 
-  @ViewChild('sidenav') sidenav: MatSidenav | any;
+  recipes: any = [];
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-  }
+    this.recipeService.getAllRecipes().subscribe(result => {
+      if(result.code == 1) {
+        localStorage.removeItem("token");
+      }
+      this.recipes = result.data;
 
-  reason = '';
-
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
+      console.log(this.recipes);
+    });
   }
 
 }

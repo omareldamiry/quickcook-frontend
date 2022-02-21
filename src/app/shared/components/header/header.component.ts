@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
 export class HeaderComponent implements OnInit {
 
   @Input() menuControl!: MatSidenav;
+  @Input() color: string = "primary";
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -18,8 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem("token");
-    this.authService.isLoggedIn = false;
+    this.authService.logout();
     this.router.navigateByUrl('');
   }
 

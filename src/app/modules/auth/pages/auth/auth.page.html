@@ -1,4 +1,4 @@
 <div class="container">
     <app-login-form (authData)="login($event)" (mode)="toggleMode($event)" *ngIf="mode == 'login'"></app-login-form>
-    <app-signup-form (mode)="toggleMode($event)" *ngIf="mode == 'signup'"></app-signup-form>
+    <app-signup-form (signupData)="signup($event)" (mode)="toggleMode($event)" *ngIf="mode == 'signup'"></app-signup-form>
 </div>
