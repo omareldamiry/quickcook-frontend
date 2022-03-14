@@ -12,3 +12,7 @@
     scrollbar-color: orange lightgrey;
     scrollbar-width: thin;
 }
+
+.center {
+    text-align: center;
+}

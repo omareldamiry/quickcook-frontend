@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Search for recipes</h1>
+<div mat-dialog-content>
+  <p>Please select ingredients</p>
+</div>
+<mat-expansion-panel *ngFor="let ingredientType of keys()">
+  <mat-expansion-panel-header>
+    {{ ingredientType }}
+  </mat-expansion-panel-header>
+  <mat-chip-list #chipList multiple="true">
+    <span *ngFor="let ingredient of ingredients">
+      <mat-chip #chip="matChip" *ngIf="ingredient.type!.toString() == ingredientType" (click)="toggleSelection(chip, ingredient)" [value]="ingredient.name">
+        {{ ingredient.name }}
+      </mat-chip>
+    </span>
+  </mat-chip-list>
+</mat-expansion-panel>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button [mat-dialog-close]="{selectedIngredients}" color="primary">Search</button>
+</div>
+  

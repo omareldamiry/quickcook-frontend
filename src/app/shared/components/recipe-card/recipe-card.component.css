@@ -6,7 +6,7 @@ mat-card {
     display: inline-block;
     margin-left: 15px;
     margin-right: 1px;
-    max-width: 200px;
+    width: 200px;
     height: auto;
     text-overflow: ellipsis;
 }

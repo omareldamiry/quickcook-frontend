@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/core/services/admin/admin.service';
 import { AdminAuthData } from 'src/app/shared/models/admin-auth-data.model';
@@ -23,10 +23,12 @@ export class AdminLoginPage implements OnInit {
       if(result.code == 1) {
         console.log(result.message);
         return;
+      } else {
+        this.adminService.setAdminFlag(true);
+        localStorage.setItem("token", result.data);
+        console.log(result.message);
+        this.router.navigateByUrl("/admin/home");
       }
-      localStorage.setItem("token", result.data);
-      console.log(result.message);
-      this.router.navigateByUrl("/admin/home");
     });
   }
 

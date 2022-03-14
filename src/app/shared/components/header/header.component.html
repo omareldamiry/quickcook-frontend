@@ -1,13 +1,15 @@
-<mat-toolbar color="{{ color }}">
-    <button mat-icon-button (click)="menuControl.toggle()">
-        <mat-icon>{{ menuControl.opened? 'arrow_back': 'menu' }}</mat-icon>
-    </button>
-    <span><ng-content></ng-content></span>
-    <span class="spacer"></span>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="logout()">Log out</button>
-    </mat-menu>
-</mat-toolbar>
+<div class="absolute">
+    <mat-toolbar color="{{ color }}">
+        <button mat-icon-button (click)="menuControl.toggle()">
+            <mat-icon>{{ menuControl.opened? 'arrow_back': 'menu' }}</mat-icon>
+        </button>
+        <span><ng-content></ng-content></span>
+        <span class="spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">Log out</button>
+        </mat-menu>
+    </mat-toolbar>
+</div>

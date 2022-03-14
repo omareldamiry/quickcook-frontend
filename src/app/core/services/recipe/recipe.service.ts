@@ -9,7 +9,7 @@ export class RecipeService {
 
   constructor(private apiService: ApiService) { }
 
-  // TODO: Check and send auth data
+  // TODO: Check and send token
 
   getAllRecipes() {
     const token = localStorage.getItem("token");
@@ -18,14 +18,18 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
-    return this.apiService.post("/recipe", recipe);
+    return this.apiService.post("/recipes/recipe", recipe);
   }
 
   updateRecipe(recipe: Recipe) {
-    return this.apiService.put(`/recipe/${recipe.id}`, recipe);
+    return this.apiService.put(`/recipes/${recipe.id}`, recipe);
   }
 
   deleteRecipe(id: Number) {
-    return this.apiService.delete(`/recipe/${id}`);
+    return this.apiService.delete(`/recipes/${id}`);
+  }
+
+  searchRecipes(ingredients: number[]) {
+    return this.apiService.post("/recipes/search", { ingredients });
   }
 }

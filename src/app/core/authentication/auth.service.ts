@@ -21,6 +21,7 @@ export class AuthService {
   }
 
   login(body: AuthData, altRoute: string = "user") {
+    this.isLoggedIn = true;
     return this.apiService.post(`/${altRoute}/login`, body);
   }
 

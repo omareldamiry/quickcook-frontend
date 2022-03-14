@@ -23,8 +23,12 @@ export class AdminService {
   }
 
   logout() {
-    this.authService.logout();
     this.authService.isAdmin = false;
+    this.authService.logout();
+  }
+
+  setAdminFlag(isAdmin: boolean) {
+    this.authService.isAdmin = isAdmin;
   }
 
   // Ingredient operations

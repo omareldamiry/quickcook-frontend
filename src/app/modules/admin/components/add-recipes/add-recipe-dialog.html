@@ -9,11 +9,35 @@
         <mat-label>Description</mat-label>
         <input matInput [(ngModel)]="data.recipe.desc" value="">
     </mat-form-field>
+    <mat-form-field color="accent">
+        <mat-label>Ingredients</mat-label>
+        <mat-chip-list #chipList selectable="false">
+            <mat-chip *ngFor="let ingredient of selectedIngredients" (removed)="remove(ingredient)" color="accent">
+                {{ ingredient.name }}
+                <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip>
+            <input
+            placeholder="Add ingredients ..."
+            #ingredientInput
+            [formControl]="ingredientCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            (matChipInputTokenEnd)="add($event)"
+            >
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient.name">
+                {{ ingredient.name }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="closeDialog()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data"
-        color="accent" disabled="{{(data.recipe.name == '')? 'true': 'false'}}">
+    <button mat-button [mat-dialog-close]="data" color="accent"
+        disabled="{{(data.recipe.name == '')? 'true': 'false'}}">
         {{data.mode=='edit'? 'Update': 'Add'}}
     </button>
 </div>

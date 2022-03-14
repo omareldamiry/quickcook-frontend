@@ -12,6 +12,9 @@ export class RecipeCardComponent implements OnInit {
     id: 0,
     name: "Recipe Card",
     desc: "Recipe description",
+    ingredients: [{
+      name: 'ingredient 1'
+    }]
   };
 
   constructor() { }

@@ -1,6 +1,6 @@
 <app-admin-layout>
     <h3>Recipes</h3>
-    <table mat-table [dataSource]="recipes">
+    <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
             <td mat-cell *matCellDef="let recipe"> {{recipe.id}} </td>
@@ -11,7 +11,15 @@
         </ng-container>
         <ng-container matColumnDef="desc">
             <th mat-header-cell *matHeaderCellDef>Description</th>
-            <td mat-cell *matCellDef="let recipe"> {{recipe.type.toString()}} </td>
+            <td mat-cell *matCellDef="let recipe"> {{recipe.desc}} </td>
+        </ng-container>
+        <ng-container matColumnDef="ingredients">
+            <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+            <td mat-cell *matCellDef="let recipe">
+                <button mat-icon-button (click)="openIngredientsDialog(recipe)">
+                    <mat-icon color="accent">receipt</mat-icon>
+                </button>
+            </td>
         </ng-container>
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef>Options</th>
@@ -29,5 +37,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     <app-add-recipes #addRecipes (addRecipeData)="addRecipe($event)" (updateRecipeData)="updateRecipe($event)"></app-add-recipes>
 </app-admin-layout>
