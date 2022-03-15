@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
-import { Recipe } from 'src/app/shared/models/recipe.model';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
+import { Recipe } from 'src/app/core/models/recipe.model';
 import { AuthService } from '../../authentication/auth.service';
 import { IngredientService } from '../ingredient/ingredient.service';
 import { RecipeService } from '../recipe/recipe.service';

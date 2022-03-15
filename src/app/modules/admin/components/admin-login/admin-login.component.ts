@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AdminAuthData } from 'src/app/shared/models/admin-auth-data.model';
+import { AdminAuthData } from 'src/app/core/models/admin-auth-data.model';
 
 @Component({
   selector: 'app-admin-login-form',

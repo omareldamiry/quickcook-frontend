@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
 import { ApiService } from '../../http/api.service';
 
 @Injectable({

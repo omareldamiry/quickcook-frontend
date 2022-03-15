@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,40 +11,48 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatOptionModule } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { HeaderComponent } from './components/header/header.component';
-import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
-import { SearchDialog, SearchFormComponent } from './components/search-form/search-form.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
 
-
+const materials = [
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatMenuModule,
+  MatCardModule,
+  MatDialogModule,
+  MatSidenavModule,
+  MatChipsModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatOptionModule,
+  MatAutocompleteModule,
+];
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    RecipeCardComponent,
-    SearchFormComponent,
-    SearchDialog,
-    SidenavComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatMenuModule,
-    MatCardModule,
-    MatDialogModule,
-    MatSidenavModule,
+    ReactiveFormsModule,
+    materials,
   ],
   exports: [
     HeaderComponent,
-    RecipeCardComponent,
-    SearchFormComponent,
-    SidenavComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    materials,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

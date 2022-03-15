@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from 'src/app/core/services/admin/admin.service';
-import { Recipe } from 'src/app/shared/models/recipe.model';
+import { Recipe } from 'src/app/core/models/recipe.model';
 import { AddRecipesComponent } from '../../components/add-recipes/add-recipes.component';
 
 @Component({

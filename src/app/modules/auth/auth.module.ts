@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
+import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthPage } from './pages/auth/auth.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -23,10 +20,7 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     CommonModule,
     FormsModule,
     AuthRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
+    SharedModule,
   ],
   exports: [
     AuthPage,

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from 'src/app/core/services/admin/admin.service';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
 import { AddIngredientsComponent } from '../../components/add-ingredients/add-ingredients.component';
 
 @Component({

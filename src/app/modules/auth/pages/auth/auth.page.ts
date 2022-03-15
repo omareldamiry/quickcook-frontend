@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/authentication/auth.service';
-import { AuthData } from 'src/app/shared/models/auth-data.model';
-import { SignupData } from 'src/app/shared/models/signup-data.model';
+import { AuthData } from 'src/app/core/models/auth-data.model';
+import { SignupData } from 'src/app/core/models/signup-data.model';
 
 @Component({
   selector: 'app-auth',

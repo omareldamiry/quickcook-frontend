@@ -2,8 +2,8 @@ import { AfterViewChecked, AfterViewInit, Component, EventEmitter, Inject, Input
 import { MatChip, MatChipList } from '@angular/material/chips';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IngredientService } from 'src/app/core/services/ingredient/ingredient.service';
-import { IngredientType } from 'src/app/shared/enums/ingredient-type';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { IngredientType } from 'src/app/core/enums/ingredient-type';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
 // TODO Make dedicated interface for SearchDialogData
 export interface SearchDialogData {
   ingredients: Ingredient[]

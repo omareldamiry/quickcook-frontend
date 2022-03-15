@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SignupData } from 'src/app/shared/models/signup-data.model';
+import { SignupData } from 'src/app/core/models/signup-data.model';
 
 @Component({
   selector: 'app-signup-form',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AuthData } from 'src/app/shared/models/auth-data.model';
-import { SignupData } from 'src/app/shared/models/signup-data.model';
+import { AuthData } from 'src/app/core/models/auth-data.model';
+import { SignupData } from 'src/app/core/models/signup-data.model';
 import { ApiService } from '../http/api.service';
 
 @Injectable({

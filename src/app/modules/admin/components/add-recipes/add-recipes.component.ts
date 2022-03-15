@@ -5,8 +5,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { map, Observable, startWith } from 'rxjs';
 import { AdminService } from 'src/app/core/services/admin/admin.service';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
-import { Recipe } from 'src/app/shared/models/recipe.model';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
+import { Recipe } from 'src/app/core/models/recipe.model';
 
 export interface RecipeDialogData {
   recipe: Recipe,

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IngredientType } from 'src/app/shared/enums/ingredient-type';
-import { Ingredient } from 'src/app/shared/models/ingredient.model';
+import { IngredientType } from 'src/app/core/enums/ingredient-type';
+import { Ingredient } from 'src/app/core/models/ingredient.model';
 
 export interface IngredientDialogData {
   ingredient: Ingredient,

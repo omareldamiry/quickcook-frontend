@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AuthData } from 'src/app/shared/models/auth-data.model';
+import { AuthData } from 'src/app/core/models/auth-data.model';
 
 @Component({
   selector: 'app-login-form',
