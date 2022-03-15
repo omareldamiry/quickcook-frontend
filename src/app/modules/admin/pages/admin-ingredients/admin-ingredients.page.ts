@@ -4,6 +4,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AdminService } from 'src/app/core/services/admin/admin.service';
 import { Ingredient } from 'src/app/core/models/ingredient.model';
 import { AddIngredientsComponent } from '../../components/add-ingredients/add-ingredients.component';
+import { AsyncTableDataSource } from 'src/app/core/models/async-table-data-source.model';
+import { IngredientService } from 'src/app/core/services/ingredient/ingredient.service';
+import { IngredientQuery } from 'src/app/core/models/ingredient-query.model';
 
 @Component({
   selector: 'app-admin-ingredients',
@@ -14,12 +17,16 @@ export class AdminIngredientsPage implements OnInit, AfterViewInit {
 
   ingredients: Ingredient[] = [];
   dataSource = new MatTableDataSource<Ingredient>(this.ingredients);
+  ingredientDataSource!: AsyncTableDataSource<Ingredient, IngredientQuery, IngredientService>;
   displayedColumns: string[] = ['id', 'name', 'type', 'options'];
 
   @ViewChild('addIngredients') addIngredientsComponent!: AddIngredientsComponent;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private adminService: AdminService) { }
+  constructor(
+    private adminService: AdminService,
+    private ingredientService: IngredientService,
+    ) { }
 
   ngOnInit(): void {
     this.adminService.getAllIngredients().subscribe(response => {
@@ -31,6 +38,8 @@ export class AdminIngredientsPage implements OnInit, AfterViewInit {
       this.dataSource.data = this.ingredients;
     });
 
+    this.ingredientDataSource = new AsyncTableDataSource(this.ingredientService);
+    this.ingredientDataSource.loadData();
   }
 
   ngAfterViewInit(): void {

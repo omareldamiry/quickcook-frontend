@@ -1,31 +1,43 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/core/models/recipe.model';
 import { ApiService } from '../../http/api.service';
+import { ApiResponse } from '../../models/api-response.model';
+import { DataService } from '../../models/data-service.model';
+import { RecipeQuery } from '../../models/recipe-query.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RecipeService {
+export class RecipeService extends DataService<Recipe, RecipeQuery>{
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+    super();
+  }
 
   // TODO: Check and send token
 
-  getAllRecipes() {
+  fetchAll() {
     const token = localStorage.getItem("token");
     
     return this.apiService.post("/recipes", { token });
   }
 
-  createRecipe(recipe: Recipe) {
+  fetch(query?: RecipeQuery): Observable<ApiResponse> {
+    const token = localStorage.getItem("token");
+    
+    return this.apiService.post("/recipes", { token });
+  }
+
+  create(recipe: Recipe) {
     return this.apiService.post("/recipes/recipe", recipe);
   }
 
-  updateRecipe(recipe: Recipe) {
+  update(recipe: Recipe) {
     return this.apiService.put(`/recipes/${recipe.id}`, recipe);
   }
 
-  deleteRecipe(id: Number) {
+  delete(id: Number) {
     return this.apiService.delete(`/recipes/${id}`);
   }
 

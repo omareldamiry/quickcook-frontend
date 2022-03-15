@@ -11,6 +11,7 @@ import { AdminIngredientsPage } from './pages/admin-ingredients/admin-ingredient
 import { IngredientDialog, AddIngredientsComponent } from './components/add-ingredients/add-ingredients.component';
 import { AddRecipesComponent, RecipeDialog } from './components/add-recipes/add-recipes.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AsyncTableComponent } from './components/async-table/async-table.component';
 
 
 
@@ -26,6 +27,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     IngredientDialog,
     RecipeDialog,
     IngredientsDialog,
+    AsyncTableComponent,
   ],
   imports: [
     CommonModule,

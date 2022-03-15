@@ -65,7 +65,7 @@ export class SearchDialog implements OnInit, AfterViewInit, AfterViewChecked {
   ) { }
 
   ngOnInit(): void {
-    this.ingredientService.getAllIngredients().subscribe(response => {
+    this.ingredientService.fetchAll().subscribe(response => {
       if (response.code == 1) {
 
       } else {

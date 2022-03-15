@@ -1,7 +1,7 @@
 import { IngredientType } from "../enums/ingredient-type";
 
 export interface Ingredient {
-    id?: number;
+    readonly id?: number;
     name: string;
     type?: IngredientType;
 }

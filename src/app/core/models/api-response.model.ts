@@ -1,5 +1,5 @@
 export interface ApiResponse {
-    code: number,
-    message: string,
-    data: any
+    readonly code: number,
+    readonly message: string,
+    readonly data: any
 }

@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.getAllRecipes().subscribe(result => {
+    this.recipeService.fetchAll().subscribe(result => {
       if (result.code == 1) {
         localStorage.removeItem("token");
       }

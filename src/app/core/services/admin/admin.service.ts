@@ -34,37 +34,37 @@ export class AdminService {
   // Ingredient operations
 
   getAllIngredients() {
-    return this.ingredientService.getAllIngredients();    
+    return this.ingredientService.fetchAll();    
   }
 
   createIngredient(body: Ingredient) {
-    return this.ingredientService.createIngredient(body)
+    return this.ingredientService.create(body)
   }
 
   updateIngredient(body: Ingredient) {
-    return this.ingredientService.updateIngredient(body);
+    return this.ingredientService.update(body);
   }
 
   deleteIngredient(id: number) {
-    return this.ingredientService.deleteIngredient(id);
+    return this.ingredientService.delete(id);
   }
 
   // Recipe operations
 
   getAllRecipes() {
-    return this.recipeService.getAllRecipes();
+    return this.recipeService.fetchAll();
   }
 
   createRecipe(body: Recipe) {
-    return this.recipeService.createRecipe(body);
+    return this.recipeService.create(body);
   }
 
   updateRecipe(body: Recipe) {
-    return this.recipeService.updateRecipe(body);
+    return this.recipeService.update(body);
   }
 
   deleteRecipe(id: number) {
-    return this.recipeService.deleteRecipe(id);
+    return this.recipeService.delete(id);
   }
 
 }

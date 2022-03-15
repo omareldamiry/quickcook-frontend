@@ -1,8 +1,9 @@
 import { Ingredient } from "./ingredient.model";
 
 export interface Recipe {
-    id?: number;
+    readonly id?: number;
     name: string;
     desc?: string;
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    readonly createdAt?: Date,
 }

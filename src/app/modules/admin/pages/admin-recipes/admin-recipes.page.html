@@ -1,5 +1,6 @@
 <app-admin-layout>
-    <h3>Recipes</h3>
+    <div class="container">
+        <h3>Recipes</h3>
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -39,4 +40,5 @@
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     <app-add-recipes #addRecipes (addRecipeData)="addRecipe($event)" (updateRecipeData)="updateRecipe($event)"></app-add-recipes>
+    </div>
 </app-admin-layout>

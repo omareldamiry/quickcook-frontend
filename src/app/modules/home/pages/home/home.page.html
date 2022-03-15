@@ -1,9 +1,11 @@
-<app-main-layout page="">
-    <h2 class="section-title">{{ title }}</h2>
+<app-main-layout>
+    <div class="container">
+        <h2 class="section-title">{{ title }}</h2>
     <div class="v-scroll">
         <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-card>
         <p class="center" *ngIf="recipes.length == 0">No recipes.</p>
     </div>
     
     <app-recipe-search-form (ingredientsQuery)="searchRecipes($event)" [selectedIngredients]="selectedIngredients"></app-recipe-search-form> 
+    </div>
 </app-main-layout>

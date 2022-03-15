@@ -5,13 +5,13 @@ button {
 .absolute {
     display: absolute;
     top: 0;
+    left: 0;
 }
 
-ng-content {
-    display: flex;
+.content {
     width: 100%;
     height: 100vh;
-    align-content: center;
+    padding: 0 40px;
 }
 
 .container {
