@@ -14,6 +14,7 @@ export class AuthService {
   constructor(private apiService: ApiService) {
     const token = localStorage.getItem("token");
     if(token) this.isLoggedIn = true;
+    if(localStorage.getItem("isAdmin")) this.isAdmin = true;
    }
 
   signup(body: SignupData) {

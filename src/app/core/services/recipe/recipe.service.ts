@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/core/models/recipe.model';
 import { ApiService } from '../../http/api.service';
 import { ApiResponse } from '../../models/api-response.model';
+import { DEFAULT_QUERY_SETTINGS } from '../../models/constants';
 import { DataService } from '../../models/data-service.model';
 import { RecipeQuery } from '../../models/recipe-query.model';
 
@@ -19,14 +20,20 @@ export class RecipeService extends DataService<Recipe, RecipeQuery>{
 
   fetchAll() {
     const token = localStorage.getItem("token");
+    let query: RecipeQuery = DEFAULT_QUERY_SETTINGS;
+    query.filter = {};
     
-    return this.apiService.post("/recipes", { token });
+    return this.apiService.post("/recipes", { token, query });
   }
 
   fetch(query?: RecipeQuery): Observable<ApiResponse> {
+    if(!query) {
+      query = DEFAULT_QUERY_SETTINGS;
+    }
+
     const token = localStorage.getItem("token");
     
-    return this.apiService.post("/recipes", { token });
+    return this.apiService.post("/recipes", { token, query });
   }
 
   create(recipe: Recipe) {

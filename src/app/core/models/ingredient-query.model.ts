@@ -1,7 +1,6 @@
-import { IngredientType } from "../enums/ingredient-type";
+import { IngredientFilter } from "./ingredient-filter.model";
 import { TableQuery } from "./table-query.model";
 
 export interface IngredientQuery extends TableQuery {
-    name?: string;
-    ofType?: IngredientType
+    filter?: IngredientFilter;
 }

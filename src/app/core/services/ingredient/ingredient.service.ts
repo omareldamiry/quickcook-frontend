@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Ingredient } from 'src/app/core/models/ingredient.model';
 import { ApiService } from '../../http/api.service';
 import { ApiResponse } from '../../models/api-response.model';
+import { DEFAULT_QUERY_SETTINGS } from '../../models/constants';
 import { DataService } from '../../models/data-service.model';
 import { IngredientQuery } from '../../models/ingredient-query.model';
 
@@ -22,13 +23,8 @@ export class IngredientService extends DataService<Ingredient, IngredientQuery> 
   fetch(query?: IngredientQuery): Observable<ApiResponse> {
     //! Replace after result 
     if(!query) {
-      query = {
-        name: 'B',
-        sortDirection: 'asc',
-        sortField: 'name',
-        pageNumber: 0,
-        pageSize: 5,
-      }
+      query = DEFAULT_QUERY_SETTINGS;
+      query.filter = {};
     }
     return this.apiService.post("/ingredients", query);
   }

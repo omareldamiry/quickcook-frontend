@@ -61,7 +61,7 @@ export class RecipeDialog {
 
   allIngredients: Ingredient[] = [];
   filteredIngredients: Observable<Ingredient[]>;
-  selectedIngredients: Ingredient[] = [{name: ''}];
+  selectedIngredients: Ingredient[] = [];
   ingredientCtrl: FormControl = new FormControl();
   @ViewChild('ingredientInput') ingredientInput!: ElementRef<HTMLInputElement>;
 

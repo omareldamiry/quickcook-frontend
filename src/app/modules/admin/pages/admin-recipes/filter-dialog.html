@@ -1,0 +1,44 @@
+<div mat-dialog-title>
+    Filter Recipes
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="recipeFilter">
+        <mat-form-field color="accent">
+            <mat-label>Name Contains:</mat-label>
+            <input matInput formControlName="name" type="text">
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Ingredients</mat-label>
+            <mat-chip-list #ingredientList>
+                <mat-chip *ngFor="let ingredient of selectedIngredients" [selectable]="false" color="accent" (removed)="remove(ingredient)">
+                    {{ ingredient.name }}
+                    <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip>
+                <input
+                placeholder="Add ingredient"
+                #ingredientInput
+                [formControl]="ingredientCtrl"
+                [matChipInputFor]="ingredientList"
+                [matAutocomplete]="auto"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let ingredient of filteredIngredients | async" [value]="ingredient.name">
+                    {{ ingredient.name }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Created At</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="createdAt">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="accent" [mat-dialog-close]="recipeFilter.value">Filter</button>
+    <button mat-button color="accent" (click)="closeDialog()">Cancel</button>
+</div>

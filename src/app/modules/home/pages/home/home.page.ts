@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/core/services/recipe/recipe.service';
 import { Ingredient } from 'src/app/core/models/ingredient.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,15 +16,16 @@ export class HomePage implements OnInit {
 
   selectedIngredients: Ingredient[] = [];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
-    this.recipeService.fetchAll().subscribe(result => {
-      if (result.code == 1) {
+    this.recipeService.fetchAll().subscribe(response => {
+      if (response.code == 1) {
         localStorage.removeItem("token");
+        this.router.navigate(['/']);
       }
       this.title = "Recently added";
-      this.recipes = result.data;
+      this.recipes = response.data.result;
     });
   }
 

@@ -1,7 +1,6 @@
-import { Ingredient } from "./ingredient.model";
+import { RecipeFilter } from "./recipe-filter.model";
 import { TableQuery } from "./table-query.model";
 
 export interface RecipeQuery extends TableQuery {
-    name?: string;
-    ingredients?: Ingredient[],
+    filter?: RecipeFilter
 }

@@ -25,7 +25,8 @@ export class AdminLoginPage implements OnInit {
         return;
       } else {
         this.adminService.setAdminFlag(true);
-        localStorage.setItem("token", result.data);
+        localStorage.setItem("token", result.data.token);
+        localStorage.setItem("isAdmin", result.data.isAdmin);
         console.log(result.message);
         this.router.navigateByUrl("/admin/home");
       }

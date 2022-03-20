@@ -1,0 +1,21 @@
+<div mat-dialog-title>
+    Filter Recipes
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="ingredientFilter">
+        <mat-form-field color="accent">
+            <mat-label>Name Contains:</mat-label>
+            <input matInput formControlName="name" type="text">
+        </mat-form-field>
+        <mat-form-field color="accent">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="ofType">
+                <mat-option *ngFor="let type of keys()" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="accent" [mat-dialog-close]="ingredientFilter.value">Filter</button>
+    <button mat-button color="accent" (click)="closeDialog()">Cancel</button>
+</div>
