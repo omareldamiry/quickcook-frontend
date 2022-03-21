@@ -13,11 +13,13 @@ export class AuthService {
 
   constructor(private apiService: ApiService) {
     const token = localStorage.getItem("token");
+    const isAdmin = localStorage.getItem("isAdmin");
     if(token) this.isLoggedIn = true;
-    if(localStorage.getItem("isAdmin")) this.isAdmin = true;
+    if(isAdmin) this.isAdmin = true;
    }
 
   signup(body: SignupData) {
+    this.isLoggedIn = true;
     return this.apiService.post("/user/signup", body);
   }
 
@@ -27,7 +29,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("token");
+    localStorage.clear();
     this.isLoggedIn = false;
+    this.isAdmin = false;
   }
 }

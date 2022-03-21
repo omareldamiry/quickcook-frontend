@@ -21,7 +21,6 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.recipeService.fetchAll().subscribe(response => {
       if (response.code == 1) {
-        localStorage.removeItem("token");
         this.router.navigate(['/']);
       }
       this.title = "Recently added";

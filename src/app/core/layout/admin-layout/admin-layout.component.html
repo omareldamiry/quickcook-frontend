@@ -1,6 +1,6 @@
 <mat-sidenav-container
-class="container" hasBackdrop="false">
-<mat-sidenav #sidenav mode="side" (keydown.escape)="closeSideNav()" disableClose>
+class="container">
+<mat-sidenav #sidenav mode="over" (keydown.escape)="closeSideNav()" disableClose>
   <mat-toolbar color="accent"></mat-toolbar>
   <p><button mat-button (click)="navigate('/admin/home')">Home</button></p>
   <p><button mat-button (click)="navigate('/admin/recipes')">Recipes</button></p>

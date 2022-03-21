@@ -29,6 +29,7 @@ export class RecipeService extends DataService<Recipe, RecipeQuery>{
   fetch(query?: RecipeQuery): Observable<ApiResponse> {
     if(!query) {
       query = DEFAULT_QUERY_SETTINGS;
+      query.filter = {};
     }
 
     const token = localStorage.getItem("token");

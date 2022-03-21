@@ -32,8 +32,7 @@ export class AuthPage implements OnInit {
     this.authService.login(authData).subscribe(result => {
       if(result.code == 1) return;
 
-      this.authService.isLoggedIn = true;
-      localStorage.setItem("token", result.data);
+      localStorage.setItem("token", result.data.token);
       this.router.navigateByUrl("/home");
     });
   }
@@ -42,7 +41,6 @@ export class AuthPage implements OnInit {
     this.authService.signup(signupData).subscribe(result => {
       if(result.code == 1) return;
 
-      this.authService.isLoggedIn = true;
       this.router.navigateByUrl("/home");
     });
   }
