@@ -1,0 +1,38 @@
+<app-main-layout>
+    <div>
+        <h2>{{ recipe.name }}</h2>
+        <img src="../../../../../../assets/cheese.jpg" alt="cheese">
+    </div>
+    <div>
+        <h3>Ingredients</h3>
+        <ul>
+            <li *ngFor="let ingredient of recipe.ingredients">
+                {{ ingredient.name }}
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Description</h3>
+        <p>{{ recipe.desc }}</p>
+        <p>Created on: {{ recipe.createdAt | date }}</p>
+    </div>
+    <div>
+        <h3>Rating</h3>
+        <p>
+            <app-star-rating [rating]="recipe.rating" [disabled]="true"></app-star-rating>
+        </p>
+        <p>
+            <button mat-button color="primary" (click)="openRatingDialog()">Rate recipe</button>
+        </p>
+    </div>
+    <div>
+        <h3>Comments</h3>
+        <mat-list role="list">
+            <mat-list-item *ngFor="let rating of recipe.ratings">
+                <p mat-line><b>User ID: </b>{{rating.userId}}</p>
+                <p mat-line><b>Rating value: </b> {{ rating.value }}</p>
+                <p mat-line *ngIf="rating.comment">Comment: {{ rating.comment }}</p>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</app-main-layout>

@@ -1,0 +1,20 @@
+<div mat-dialog-title>
+    Rate recipe
+</div>
+<div mat-dialog-content>
+    <p>Choose a rating</p>
+    <app-star-rating #starRating></app-star-rating>
+    <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <textarea #comment matInput rows="3" placeholder="Comment (optional)"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button 
+    mat-raised-button color="primary"
+    [disabled]="starRating.value == 0"
+    [mat-dialog-close]="{ value: starRating.value, comment: comment.value || undefined }">
+        Rate
+    </button>
+</div>

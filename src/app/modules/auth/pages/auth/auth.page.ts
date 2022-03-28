@@ -32,6 +32,7 @@ export class AuthPage implements OnInit {
     this.authService.login(authData).subscribe(result => {
       if(result.code == 1) return;
 
+      localStorage.setItem("user", JSON.stringify(result.data.user));
       localStorage.setItem("token", result.data.token);
       this.router.navigateByUrl("/home");
     });

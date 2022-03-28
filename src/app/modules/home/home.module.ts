@@ -7,6 +7,8 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomePage } from './pages/home/home.page';
 import { SearchFormComponent, SearchDialog } from './components/search-form/search-form.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import { RatingDialog, RecipePage } from './pages/recipe/recipe.page';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 @NgModule({
@@ -14,7 +16,10 @@ import { RecipeCardComponent } from './components/recipe-card/recipe-card.compon
     HomePage,
     SearchFormComponent,
     RecipeCardComponent,
+    RatingDialog,
     SearchDialog,
+    RecipePage,
+    StarRatingComponent,
   ],
   imports: [
     CommonModule,

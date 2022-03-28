@@ -16,6 +16,14 @@ mat-card-content {
     white-space: pre-wrap;
 }
 
+mat-form-field {
+    display: block;
+}
+
+mat-slider {
+    width: 100%;
+}
+
 img {
     height: 150px;
     object-fit: cover;

@@ -1,0 +1,8 @@
+<div>
+    <p>
+        {{ value }}
+        <button mat-icon-button *ngFor="let star of stars; let i = index" color="primary" (click)="!disabled?activateUntil(i+1):null">
+            <mat-icon>{{star? "star": "star_outline"}}</mat-icon>
+        </button>
+    </p>
+</div>

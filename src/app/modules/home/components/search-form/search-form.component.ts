@@ -33,8 +33,9 @@ export class SearchFormComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: { selectedIngredients: Ingredient[] } | undefined) => {
       if(result)
-      if (result.selectedIngredients.length != 0)
+      if (result.selectedIngredients.length != 0) {
         this.ingredientsQuery.emit(result.selectedIngredients);
+      }
     });
   }
 

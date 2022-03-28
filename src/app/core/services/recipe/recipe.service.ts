@@ -5,6 +5,7 @@ import { ApiService } from '../../http/api.service';
 import { ApiResponse } from '../../models/api-response.model';
 import { DEFAULT_QUERY_SETTINGS } from '../../models/constants';
 import { DataService } from '../../models/data-service.model';
+import { Rating } from '../../models/rating.model';
 import { RecipeQuery } from '../../models/recipe-query.model';
 
 @Injectable({
@@ -49,6 +50,11 @@ export class RecipeService extends DataService<Recipe, RecipeQuery>{
     return this.apiService.delete(`/recipes/${id}`);
   }
 
+  rate(rating: Rating) {
+    return this.apiService.put('/recipes/rate', rating);
+  }
+
+  // @deprecated
   searchRecipes(ingredients: number[]) {
     return this.apiService.post("/recipes/search", { ingredients });
   }

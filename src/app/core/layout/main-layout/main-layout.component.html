@@ -2,13 +2,15 @@
 class="container">
 <mat-sidenav #sidenav mode="over" (keydown.escape)="close()">
   <mat-toolbar color="primary"></mat-toolbar>
-  <p><button mat-button (click)="close()">Home</button></p>
+  <p><button mat-button (click)="navigate('/')">Home</button></p>
   <p><button mat-button (click)="close()">Favorites</button></p>
   <p><button mat-button (click)="close()">Ratings</button></p>
 </mat-sidenav>
 
 <mat-sidenav-content>
     <app-header [menuControl]="sidenav">QuickCook</app-header>
+    <div class="content-container">
       <ng-content></ng-content>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

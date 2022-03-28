@@ -1,12 +1,13 @@
-<mat-card>
+<mat-card (click)="navigateToRecipe()">
         <img mat-card-image src="../../../../assets/cheese.jpg" alt="cheese">
     <mat-card-title>
         {{ recipe.name }}
     </mat-card-title>
     <mat-card-content>
         <p>{{ recipe.desc }}</p>
+        <p>Rating: {{ recipe.rating }}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button><mat-icon>favorite</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="$event.stopPropagation()"><mat-icon>favorite_outline</mat-icon></button>
     </mat-card-actions>
 </mat-card>

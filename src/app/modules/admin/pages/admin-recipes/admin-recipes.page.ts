@@ -30,7 +30,7 @@ export class AdminRecipesPage implements OnInit, AfterViewInit {
   recipeDataSource!: AsyncTableDataSource<Recipe, RecipeQuery, RecipeService>;
   recipeQuery: RecipeQuery = DEFAULT_QUERY_SETTINGS;
   recipeFilter = new FormControl();
-  displayedColumns: string[] = ["id", "name", "desc", "createdAt", "ingredients", "options"];
+  displayedColumns: string[] = ["id", "name", "desc", "rating", "createdAt", "ingredients", "options"];
 
   @ViewChild("addRecipes") addRecipesComponent!: AddRecipesComponent;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

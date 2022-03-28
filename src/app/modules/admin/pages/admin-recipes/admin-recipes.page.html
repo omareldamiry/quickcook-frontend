@@ -24,6 +24,10 @@
                 <th mat-header-cell *matHeaderCellDef>Description</th>
                 <td mat-cell *matCellDef="let recipe"> {{recipe.desc}} </td>
             </ng-container>
+            <ng-container matColumnDef="rating">
+                <th mat-header-cell *matHeaderCellDef>Rating</th>
+                <td mat-cell *matCellDef="let recipe"> {{recipe.rating}} </td>
+            </ng-container>
             <ng-container matColumnDef="ingredients">
                 <th mat-header-cell *matHeaderCellDef>Ingredients</th>
                 <td mat-cell *matCellDef="let recipe">

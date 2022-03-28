@@ -5,3 +5,7 @@ button {
 .container {
     height: 100%;
 }
+
+.content-container {
+    padding : 20px 40px;
+}

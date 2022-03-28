@@ -21,6 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatListModule } from '@angular/material/list';
 
 import { HeaderComponent } from './components/header/header.component';
 
@@ -44,6 +46,8 @@ const materials = [
   MatNativeDateModule,
   MatSelectModule,
   MatExpansionModule,
+  MatSliderModule,
+  MatListModule,
 ];
 
 @NgModule({
