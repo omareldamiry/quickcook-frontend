@@ -1,5 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, EventEmitter, Inject, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
-import { MatChip, MatChipList } from '@angular/material/chips';
+import { MatChip } from '@angular/material/chips';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IngredientService } from 'src/app/core/services/ingredient/ingredient.service';
 import { IngredientType } from 'src/app/core/enums/ingredient-type';

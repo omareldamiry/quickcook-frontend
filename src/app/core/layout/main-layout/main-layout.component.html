@@ -3,7 +3,7 @@ class="container">
 <mat-sidenav #sidenav mode="over" (keydown.escape)="close()">
   <mat-toolbar color="primary"></mat-toolbar>
   <p><button mat-button (click)="navigate('/')">Home</button></p>
-  <p><button mat-button (click)="close()">Favorites</button></p>
+  <p><button mat-button (click)="navigate('/favourites')">Favorites</button></p>
   <p><button mat-button (click)="close()">Ratings</button></p>
 </mat-sidenav>
 

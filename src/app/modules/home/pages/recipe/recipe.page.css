@@ -7,3 +7,8 @@ img {
 mat-form-field {
     display: block;
 }
+
+.fav {
+    font-size: 30px;
+    transform: scale(1.2);
+}

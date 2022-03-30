@@ -5,9 +5,22 @@
     </mat-card-title>
     <mat-card-content>
         <p>{{ recipe.desc }}</p>
-        <p>Rating: {{ recipe.rating }}</p>
+        <p>
+            <app-star-rating
+            [size]="'small'"
+            [displayLabel]="false"
+            [rating]="recipe.rating"
+            [disabled]="true"
+            matTooltip="Rating: {{recipe.rating}}"
+            (click)="$event.stopPropagation()">
+            </app-star-rating>
+        </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-icon-button color="warn" (click)="$event.stopPropagation()"><mat-icon>favorite_outline</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="$event.stopPropagation(); toggleFavourite()">
+            <mat-icon>
+                {{!recipe.isFavourite? "favorite_outline" : "favorite"}}
+            </mat-icon>
+        </button>
     </mat-card-actions>
 </mat-card>

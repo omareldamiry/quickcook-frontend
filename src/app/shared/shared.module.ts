@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HeaderComponent } from './components/header/header.component';
 
@@ -48,6 +49,7 @@ const materials = [
   MatExpansionModule,
   MatSliderModule,
   MatListModule,
+  MatTooltipModule
 ];
 
 @NgModule({

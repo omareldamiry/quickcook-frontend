@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { DEFAULT_QUERY_SETTINGS } from 'src/app/core/models/constants';
 import { Rating } from 'src/app/core/models/rating.model';
 import { RecipeQuery } from 'src/app/core/models/recipe-query.model';
 import { Recipe } from 'src/app/core/models/recipe.model';
 import { User } from 'src/app/core/models/user.model';
 import { RecipeService } from 'src/app/core/services/recipe/recipe.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-recipe',
@@ -21,21 +21,20 @@ export class RecipePage implements OnInit {
     ingredients: [],
     rating: 0
   };
-  recipeSubscription!: Subscription;
 
   constructor(
-    private router: Router,
     private dialog: MatDialog,
     private route: ActivatedRoute,
+    private userService: UserService,
     private recipeService: RecipeService
   ) {
     this.route.params.subscribe(params => {
       const id = params['id'];
-      this.recipeSubscription = this.fetchRecipe(id).subscribe(response => {
+      this.fetchRecipe(id).subscribe(response => {
         if(response.code == 0) {
           this.recipe = response.data.result[0];
+          this.recipe.isFavourite = this.userService.isInFavourites(this.recipe);
         }
-        console.log(response.data.result[0]);
       });
     });
   }
@@ -66,8 +65,17 @@ export class RecipePage implements OnInit {
 
   fetchRecipe(id: number) {
     const query: RecipeQuery = DEFAULT_QUERY_SETTINGS;
-    query.filter = { id };
+    query.filter = { id: [id] };
     return this.recipeService.fetch(query);
+  }
+
+  toggleFavourite(): void {
+    this.userService.toggleFavourites(this.recipe).subscribe(response => {
+      if(response.code == 0) {
+        this.recipe.isFavourite = !this.recipe.isFavourite;
+      }
+      console.log(response);
+    });
   }
 
   submitRating(rating: Rating): void {

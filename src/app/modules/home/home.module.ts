@@ -9,6 +9,7 @@ import { SearchFormComponent, SearchDialog } from './components/search-form/sear
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { RatingDialog, RecipePage } from './pages/recipe/recipe.page';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { FavouritesPage } from './pages/favourites/favourites.page';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     SearchDialog,
     RecipePage,
     StarRatingComponent,
+    FavouritesPage,
   ],
   imports: [
     CommonModule,

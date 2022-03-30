@@ -1,0 +1,10 @@
+.small {
+    width: 20px;
+    height: 20px;
+    font-size: 1px;
+    transform: scale(0.6);
+}
+
+.large {
+    transform: scale(1.5);
+}

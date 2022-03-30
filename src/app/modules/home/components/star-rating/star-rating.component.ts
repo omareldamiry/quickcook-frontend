@@ -11,6 +11,8 @@ export class StarRatingComponent implements OnChanges, OnInit {
 
   @Input() rating: number = 0;
   @Input() disabled: boolean = false;
+  @Input() size: "medium" | "small" | "large" = "medium";
+  @Input() displayLabel: boolean = true;
   stars: boolean[] = [false, false, false, false, false];
   value: number = 0;
 

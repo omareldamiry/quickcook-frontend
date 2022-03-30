@@ -1,6 +1,15 @@
 <app-main-layout>
     <div>
-        <h2>{{ recipe.name }}</h2>
+        <h2>
+            {{ recipe.name }}
+            <button mat-icon-button color="warn"
+            class="fav"
+            matTooltip="{{!recipe.isFavourite? 'Add to favourites': 'Remove from favourites'}}"
+            matTooltipPosition="right"
+            (click)="toggleFavourite()">
+                <mat-icon>{{!recipe.isFavourite? "favorite_outline" : "favorite"}}</mat-icon>
+            </button>
+        </h2>
         <img src="../../../../../../assets/cheese.jpg" alt="cheese">
     </div>
     <div>

@@ -6,6 +6,7 @@ export interface Recipe {
     name: string;
     desc?: string;
     rating: number;
+    isFavourite?: boolean;
     ratings?: Rating[];
     ingredients: Ingredient[],
     readonly createdAt?: Date,

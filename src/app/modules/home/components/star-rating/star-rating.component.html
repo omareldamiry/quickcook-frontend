@@ -1,7 +1,7 @@
 <div>
     <p>
-        {{ value }}
-        <button mat-icon-button *ngFor="let star of stars; let i = index" color="primary" (click)="!disabled?activateUntil(i+1):null">
+        <span *ngIf="displayLabel">{{ value }}</span>
+        <button mat-icon-button class="{{ size }}" *ngFor="let star of stars; let i = index" color="primary" (click)="!disabled?activateUntil(i+1):null" [disableRipple]="disabled">
             <mat-icon>{{star? "star": "star_outline"}}</mat-icon>
         </button>
     </p>
