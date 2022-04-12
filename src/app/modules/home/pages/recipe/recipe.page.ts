@@ -33,7 +33,9 @@ export class RecipePage implements OnInit {
       this.fetchRecipe(id).subscribe(response => {
         if(response.code == 0) {
           this.recipe = response.data.result[0];
-          this.recipe.isFavourite = this.userService.isInFavourites(this.recipe);
+          this.userService.isInFavourites(this.recipe).subscribe(isFavourite => {
+            this.recipe.isFavourite = isFavourite;
+          });
         }
       });
     });

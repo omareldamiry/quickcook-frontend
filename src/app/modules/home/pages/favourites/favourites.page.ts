@@ -21,18 +21,21 @@ export class FavouritesPage implements OnInit {
     private userService: UserService,
     private recipeService: RecipeService
     ) {
-      const query: RecipeQuery = DEFAULT_QUERY_SETTINGS;
+      // const query: RecipeQuery = DEFAULT_QUERY_SETTINGS;
       
       this.user = this.userService.user;
+      this.userService.getFavourites().subscribe(response => {
+        if(response.code == 0) {
+
+          this.favourites = response.data.result;
+          
+          // this.recipeService.fetch(query).subscribe(response => {
+          //   if(response.code == 0) {
+          //   }
+          // });
+        }
+      });
       
-      query.filter = {
-        id: this.user?.favourites?.map(recipe => recipe.id)
-      };
-    this.recipeService.fetch(query).subscribe(response => {
-      if(response.code == 0) {
-        this.favourites = response.data.result;
-      }
-    });
   }
 
   ngOnInit(): void {

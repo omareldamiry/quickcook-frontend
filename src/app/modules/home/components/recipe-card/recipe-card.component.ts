@@ -26,7 +26,9 @@ export class RecipeCardComponent implements OnChanges, OnInit {
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.recipe.isFavourite = this.userService.isInFavourites(this.recipe);
+    this.userService.isInFavourites(this.recipe).subscribe(isFavourite => {
+      this.recipe.isFavourite = isFavourite;
+    });
   }
 
   ngOnInit(): void {
